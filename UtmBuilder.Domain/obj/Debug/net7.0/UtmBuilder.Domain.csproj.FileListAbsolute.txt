@@ -1,0 +1,12 @@
+C:\balta\UtmBuilder\UtmBuilder.Domain\bin\Debug\net7.0\UtmBuilder.Domain.deps.json
+C:\balta\UtmBuilder\UtmBuilder.Domain\bin\Debug\net7.0\UtmBuilder.Domain.dll
+C:\balta\UtmBuilder\UtmBuilder.Domain\bin\Debug\net7.0\UtmBuilder.Domain.pdb
+C:\balta\UtmBuilder\UtmBuilder.Domain\obj\Debug\net7.0\UtmBuilder.Domain.csproj.AssemblyReference.cache
+C:\balta\UtmBuilder\UtmBuilder.Domain\obj\Debug\net7.0\UtmBuilder.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\balta\UtmBuilder\UtmBuilder.Domain\obj\Debug\net7.0\UtmBuilder.Domain.AssemblyInfoInputs.cache
+C:\balta\UtmBuilder\UtmBuilder.Domain\obj\Debug\net7.0\UtmBuilder.Domain.AssemblyInfo.cs
+C:\balta\UtmBuilder\UtmBuilder.Domain\obj\Debug\net7.0\UtmBuilder.Domain.csproj.CoreCompileInputs.cache
+C:\balta\UtmBuilder\UtmBuilder.Domain\obj\Debug\net7.0\UtmBuilder.Domain.dll
+C:\balta\UtmBuilder\UtmBuilder.Domain\obj\Debug\net7.0\refint\UtmBuilder.Domain.dll
+C:\balta\UtmBuilder\UtmBuilder.Domain\obj\Debug\net7.0\UtmBuilder.Domain.pdb
+C:\balta\UtmBuilder\UtmBuilder.Domain\obj\Debug\net7.0\ref\UtmBuilder.Domain.dll

@@ -1,0 +1,63 @@
+﻿using UtmBuilder.Domain.Extensions;
+using UtmBuilder.Domain.ValueObjects;
+using UtmBuilder.Domain.ValueObjects.Exceptions;
+
+namespace UtmBuilder.Domain.Entities
+{
+    public class Utm
+    {
+        public Utm(Url url, Campaign campaign)
+        {
+            Url = url;
+            Campaign = campaign;
+        }
+
+        /// <summary>
+        /// URL (Website Link)
+        /// </summary>
+        public Url Url { get; } 
+
+        /// <summary>
+        /// Campaing Details
+        /// </summary>
+        public Campaign Campaign { get; }
+
+        public static implicit operator string(Utm utm) => utm.ToString();
+
+        public static implicit operator Utm(string link)
+        {
+            if(string.IsNullOrEmpty(link))
+                throw new InvalidUrlException();
+
+            var url = new Url(link);
+            var segmets = url.Address.Split("?");
+            if(segmets.Length == 1)
+                throw new InvalidUrlException("no sements were provided");
+
+            var pars = segmets[1].Split("&");
+            var source = pars.Where(x => x.StartsWith("utm_source")).FirstOrDefault("").Split("=")[1];
+            var medium = pars.Where(x => x.StartsWith("utm_medium")).FirstOrDefault("").Split("=")[1];
+            var name = pars.Where(x => x.StartsWith("utm_campaign")).FirstOrDefault("").Split("=")[1];
+            var id = pars.Where(x => x.StartsWith("utm_id")).FirstOrDefault("").Split("=")[1];
+            var term = pars.Where(x => x.StartsWith("utm_term")).FirstOrDefault("").Split("=")[1];
+            var content = pars.Where(x => x.StartsWith("utm_content")).FirstOrDefault("").Split("=")[1];
+
+            var utm = new Utm(
+                new Url(segmets[0]), 
+                new Campaign(source, medium, name, id, term, content));
+            return utm;
+        }
+        public override string ToString() //criar url
+        {
+            var segments = new List<string>();
+            segments.AddIfNotNull("utm_source", Campaign.Source);
+            segments.AddIfNotNull("utm_medium", Campaign.Medium);
+            segments.AddIfNotNull("utm_campaign", Campaign.Name);
+            segments.AddIfNotNull("utm_id", Campaign.Id);
+            segments.AddIfNotNull("utm_term", Campaign.Term);
+            segments.AddIfNotNull("utm_content", Campaign.Content);
+            return $"{Url.Address}?{string.Join("&", segments)}";
+        }
+
+    }
+}
